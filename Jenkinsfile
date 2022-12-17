@@ -9,6 +9,7 @@ pipeline {
         // see https://jenkins.io/doc/book/using/using-credentials/
         CYPRESS_RECORD_KEY = '5c98686d-03b2-4968-ac99-dfe3ac88b519'
       }
+      tools {nodejs "node18"}
 
       steps {
         sh 'npm ci'

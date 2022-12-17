@@ -20,7 +20,7 @@ describe('Test admin page', () => {
     cy.get('.conf-step__list')
         .get('li')
         .first()
-        .get('a')
+        .first()
         .click()
     cy.get('[value="Удалить"]').click()
     cy.on("window:confirm", (t) => {

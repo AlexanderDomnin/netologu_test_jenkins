@@ -13,7 +13,7 @@ pipeline {
 
       steps {
         sh 'npm ci'
-        sh "npm run test:ci:record"
+        sh "npm run test:record:parallel"
       }
     }
   }

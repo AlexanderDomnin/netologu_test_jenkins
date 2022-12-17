@@ -1,4 +1,4 @@
-import {header, imgName, movie} from "../support/consts";
+import {header, imgName, movie} from "../../support/consts";
 
 describe('Test main page', () => {
     beforeEach(() => {

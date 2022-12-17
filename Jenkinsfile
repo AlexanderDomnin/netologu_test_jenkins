@@ -22,14 +22,14 @@ pipeline {
             stage('tester A') {
               steps {
                 echo "Running build ${env.BUILD_ID}"
-                sh "npm run test:record:chrome:parallel"
+                sh "npm run test:record:chrome:parallel:spec"
               }
             }
 
             stage('tester B') {
               steps {
                 echo "Running build ${env.BUILD_ID}"
-                sh "npm run test:record:firefox:parallel"
+                sh "npm run test:record:firefox:parallel:spec"
               }
             }
           }

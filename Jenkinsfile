@@ -1,20 +1,37 @@
 pipeline {
   agent any
   stages {
-    stage('build and test') {
-      environment {
-        // we will be recording test results and video on Cypress dashboard
-        // to record we need to set an environment variable
-        // we can load the record key variable from credentials store
-        // see https://jenkins.io/doc/book/using/using-credentials/
-        CYPRESS_RECORD_KEY = '5c98686d-03b2-4968-ac99-dfe3ac88b519'
-      }
+    stage('build') {
       tools {nodejs "node18"}
-
       steps {
-        sh 'npm ci'
-        sh "npm run test:record:parallel"
+              // there a few default environment variables on Jenkins
+              // on local Jenkins machine (assuming port 8080) see
+              // http://localhost:8080/pipeline-syntax/globals#env
+              echo "Running build ${env.BUILD_ID} on ${env.JENKINS_URL}"
+              sh 'npm ci'
+            }
       }
-    }
-  }
-}
+    stage('cypress parallel tests') {
+          environment {
+            CYPRESS_RECORD_KEY = credentials('cypress-example-record-key')
+            CYPRESS_trashAssetsBeforeRuns = 'false'
+          }
+
+          parallel {
+            stage('tester A') {
+              steps {
+                echo "Running build ${env.BUILD_ID}"
+                sh "npm run test:record:parallel"
+              }
+            }
+
+            stage('tester B') {
+              steps {
+                echo "Running build ${env.BUILD_ID}"
+                sh "npm run test:record:parallel"
+              }
+            }
+          }
+
+        }
+      }

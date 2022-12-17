@@ -2,7 +2,6 @@ pipeline {
   agent any
   stages {
     stage('build') {
-      tools {nodejs "node18"}
       steps {
               // there a few default environment variables on Jenkins
               // on local Jenkins machine (assuming port 8080) see
@@ -16,6 +15,7 @@ pipeline {
             CYPRESS_RECORD_KEY = credentials('cypress-example-record-key')
             CYPRESS_trashAssetsBeforeRuns = 'false'
           }
+          tools {nodejs "node18"}
 
           parallel {
             stage('tester A') {

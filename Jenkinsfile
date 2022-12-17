@@ -2,10 +2,10 @@ pipeline {
   agent any
   tools {nodejs "node18"}
   parameters {
-        choice(name: 'SPEC_1', choices: ["cypress/e2e/admin_spec/*", "cypress/e2e/main_spec/*"], descriptions: "choice value parallel 1" )
-        choice(name: 'SPEC_2', choices: ["cypress/e2e/main_spec/*","cypress/e2e/admin_spec/*"], descriptions: "choice value parallel 2" )
-        choice(name: 'BROWSER_1', choices: ['chrome', 'firefox','edge'], descriptions: "choice value browser 1" )
-        choice(name: 'BROWSER_2', choices: ['firefox','chrome','edge'], descriptions: "choice value browser 2" )
+        choice(name: 'SPEC_1', choices: ["cypress/e2e/admin_spec/*", "cypress/e2e/main_spec/*"], description: "choice value parallel 1" )
+        choice(name: 'SPEC_2', choices: ["cypress/e2e/main_spec/*","cypress/e2e/admin_spec/*"], description: "choice value parallel 2" )
+        choice(name: 'BROWSER_1', choices: ['chrome', 'firefox','edge'], description: "choice value browser 1" )
+        choice(name: 'BROWSER_2', choices: ['firefox','chrome','edge'], description: "choice value browser 2" )
   }
   stages {
     stage('build') {

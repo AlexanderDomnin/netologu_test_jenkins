@@ -9,7 +9,7 @@
     "test:record:edge:parallel": "cypress run --record --browser edge --parallel",
     "test:record:firefox:parallel": "cypress run --record --browser firefox --parallel",
     "test:record:parallel": "cypress run --record  --parallel",
-    "test:record:chrome:parallel:spec": "cypress run --record --browser chrome --parallel --spec 'cypress/e2e/admin_spec/*'",
-    "test:record:firefox:parallel:spec": "cypress run --record --browser firefox --parallel --spec 'cypress/e2e/main_spec/*'"
+    "test:record:chrome:parallel:spec": "cypress run --record --browser chrome --parallel --spec \"cypress/e2e/admin_spec/*\"",
+    "test:record:firefox:parallel:spec": "cypress run --record --browser firefox --parallel --spec \"cypress/e2e/main_scpec/*\""
   }
 }

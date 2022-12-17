@@ -1,5 +1,7 @@
 pipeline {
   agent any
+  tools {nodejs "node18"}
+
   stages {
     stage('build') {
       steps {
@@ -15,7 +17,6 @@ pipeline {
             CYPRESS_RECORD_KEY = credentials('cypress-example-record-key')
             CYPRESS_trashAssetsBeforeRuns = 'false'
           }
-          tools {nodejs "node18"}
 
           parallel {
             stage('tester A') {

@@ -8,7 +8,7 @@ describe('Test main page', () => {
         cy.get('.movie-seances__time')
             .first()
             .click()
-        cy.get('.buying-scheme__chair_standart')
+        cy.xpath('//*[@class=\'buying-scheme__chair buying-scheme__chair_standart\']')
             .first()
             .click()
         cy.contains('Забронировать').click()

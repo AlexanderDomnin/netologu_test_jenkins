@@ -7,7 +7,7 @@
     "cy:run:record": "cypress run --record",
     "test:record:edge:parallel": "cypress run --record --browser edge --parallel",
     "test:record:parallel": "cypress run --record  --parallel",
-    "test:record:chrome:parallel": "cypress run --record --browser chrome --parallel --group 'MainWeb Chrome'",
-    "test:record:firefox:parallel": "cypress run --record --browser firefox --parallel --group 'MainWeb Firefox'"
+    "test:record:chrome:parallel": "cypress run --record --browser chrome --parallel --group 'MainWeb Chrome' --spec",
+    "test:record:firefox:parallel": "cypress run --record --browser firefox --parallel --group 'MainWeb Firefox' --spec"
   }
 }
